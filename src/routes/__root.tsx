@@ -81,6 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Premium AI creative agency for consumer product brands." },
       { name: "theme-color", content: "#0B0B0B" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Karnataka Ads Studio" },
+      { name: "twitter:title", content: "Karnataka Ads Studio" },
+      { property: "og:description", content: "Premium AI creative agency for consumer product brands." },
+      { name: "twitter:description", content: "Premium AI creative agency for consumer product brands." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/FAdeZYfIxdYvaN2hYK7phH6rYOS2/social-images/social-1782546862796-karnataka_ads_studio_logo.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/FAdeZYfIxdYvaN2hYK7phH6rYOS2/social-images/social-1782546862796-karnataka_ads_studio_logo.webp" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
