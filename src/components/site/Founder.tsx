@@ -2,7 +2,7 @@ import founder from "@/assets/founder.png.asset.json";
 
 export function Founder() {
   return (
-    <section id="about" className="py-28 md:py-36">
+    <section id="about" className="py-32 md:py-44">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-5">
@@ -44,7 +44,7 @@ export function Founder() {
                 href="https://instagram.com/aiwithlikhith"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-3 rounded-full glass px-5 py-3 text-sm hover:bg-white/10 transition-all"
+                className="inline-flex items-center gap-3 rounded-full glass px-5 py-3 text-sm hover:bg-white/10 hover:border-gold/30 transition-all"
               >
                 <span className="h-2 w-2 rounded-full bg-gold" />
                 @aiwithlikhith

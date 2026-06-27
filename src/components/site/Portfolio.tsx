@@ -38,9 +38,9 @@ export function Portfolio() {
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="portfolio" className="py-28 md:py-36">
+    <section id="portfolio" className="py-32 md:py-44">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
           <SectionHeader
             eyebrow="Portfolio"
             title={<>Work that <span className="text-gradient-gold italic font-normal">stops thumbs.</span></>}
@@ -50,10 +50,10 @@ export function Portfolio() {
               <button
                 key={c}
                 onClick={() => setActive(c)}
-                className={`px-4 py-2 rounded-full text-xs transition-all ${
+                className={`px-4 py-2 rounded-full text-xs tracking-wide transition-all ${
                   active === c
                     ? "bg-gold text-primary-foreground"
-                    : "glass text-muted-foreground hover:text-foreground"
+                    : "glass text-muted-foreground hover:text-foreground hover:border-white/15"
                 }`}
               >
                 {c}
@@ -62,9 +62,9 @@ export function Portfolio() {
           </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.length === 0 && (
-            <div className="col-span-full text-center py-20 text-muted-foreground text-sm">
+            <div className="col-span-full text-center py-24 text-muted-foreground text-sm">
               New {active.toLowerCase()} drops coming soon.
             </div>
           )}
@@ -72,7 +72,7 @@ export function Portfolio() {
             <button
               key={p.src + i}
               onClick={() => setLightbox(p)}
-              className="group relative rounded-2xl overflow-hidden bg-surface aspect-[9/16] reveal"
+              className="group relative rounded-3xl overflow-hidden bg-surface aspect-[9/14] reveal border border-border hover:border-gold/30 transition-all"
               style={{ animationDelay: `${i * 60}ms` }}
             >
               <video
@@ -82,14 +82,14 @@ export function Portfolio() {
                 playsInline
                 autoPlay
                 preload="metadata"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-[10px] uppercase tracking-widest text-gold">{p.category}</div>
-                <div className="mt-1 text-sm font-medium">{p.title}</div>
+              <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black via-black/60 to-transparent">
+                <div className="text-[10px] uppercase tracking-[0.25em] text-gold">{p.category}</div>
+                <div className="mt-2 text-base font-medium">{p.title}</div>
               </div>
-              <div className="absolute top-3 right-3 h-8 w-8 rounded-full glass grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-xs">↗</span>
+              <div className="absolute top-4 right-4 h-10 w-10 rounded-full glass grid place-items-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-1 group-hover:translate-y-0">
+                <span className="text-sm">↗</span>
               </div>
             </button>
           ))}
@@ -119,7 +119,7 @@ export function Portfolio() {
               />
             </div>
             <div className="mt-4 text-center">
-              <div className="text-[10px] uppercase tracking-widest text-gold">{lightbox.category}</div>
+              <div className="text-[10px] uppercase tracking-[0.25em] text-gold">{lightbox.category}</div>
               <div className="mt-1 text-base font-medium">{lightbox.title}</div>
             </div>
           </div>
