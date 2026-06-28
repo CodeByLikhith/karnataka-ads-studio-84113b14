@@ -144,3 +144,12 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@utility float-soft {
+  animation: float-soft 3.2s ease-in-out infinite;
+}
