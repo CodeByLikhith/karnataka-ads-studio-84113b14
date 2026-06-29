@@ -2,12 +2,12 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
-import { getCaseStudy, caseStudies } from "@/components/site/case-studies-data";
+import { getCaseStudy, caseStudies, type CaseStudy } from "@/components/site/case-studies-data";
 
 const SITE = "https://karnataka-ads-studio.lovable.app";
 
 export const Route = createFileRoute("/case-studies/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { study: CaseStudy } => {
     const study = getCaseStudy(params.slug);
     if (!study) throw notFound();
     return { study };

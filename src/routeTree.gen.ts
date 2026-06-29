@@ -13,6 +13,7 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSkincareAiVsTraditionalRouteImport } from './routes/case-studies.skincare-ai-vs-traditional'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
@@ -35,16 +36,23 @@ const CaseStudiesSkincareAiVsTraditionalRoute =
     path: '/case-studies/skincare-ai-vs-traditional',
     getParentRoute: () => rootRouteImport,
   } as any)
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/case-studies/$slug',
+  path: '/case-studies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/skincare-ai-vs-traditional': typeof CaseStudiesSkincareAiVsTraditionalRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/skincare-ai-vs-traditional': typeof CaseStudiesSkincareAiVsTraditionalRoute
   '/case-studies': typeof CaseStudiesIndexRoute
 }
@@ -52,6 +60,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/skincare-ai-vs-traditional': typeof CaseStudiesSkincareAiVsTraditionalRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
 }
@@ -60,18 +69,21 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/portfolio'
+    | '/case-studies/$slug'
     | '/case-studies/skincare-ai-vs-traditional'
     | '/case-studies/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/portfolio'
+    | '/case-studies/$slug'
     | '/case-studies/skincare-ai-vs-traditional'
     | '/case-studies'
   id:
     | '__root__'
     | '/'
     | '/portfolio'
+    | '/case-studies/$slug'
     | '/case-studies/skincare-ai-vs-traditional'
     | '/case-studies/'
   fileRoutesById: FileRoutesById
@@ -79,6 +91,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PortfolioRoute: typeof PortfolioRoute
+  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   CaseStudiesSkincareAiVsTraditionalRoute: typeof CaseStudiesSkincareAiVsTraditionalRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
@@ -113,12 +126,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSkincareAiVsTraditionalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/case-studies/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PortfolioRoute: PortfolioRoute,
+  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   CaseStudiesSkincareAiVsTraditionalRoute:
     CaseStudiesSkincareAiVsTraditionalRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
