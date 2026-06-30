@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import logo from "@/assets/logo.png.asset.json";
 
-type NavItem = { label: string; href?: string; to?: string };
+type NavItem = { label: string; hash?: string; to?: string };
 
 const nav: NavItem[] = [
-  { label: "Home", href: "/#home" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Home", hash: "home" },
+  { label: "Services", hash: "services" },
+  { label: "Portfolio", hash: "portfolio" },
   { label: "Case Studies", to: "/case-studies" },
-  { label: "Packages", href: "/#packages" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Pricing", hash: "packages" },
+  { label: "About", hash: "about" },
+  { label: "Contact", hash: "contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,6 +26,23 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const HashLink = ({ hash, children, onClick, className }: { hash: string; children: React.ReactNode; onClick?: () => void; className?: string }) => {
+    if (onHome) {
+      return (
+        <a href={`#${hash}`} onClick={onClick} className={className}>
+          {children}
+        </a>
+      );
+    }
+    return (
+      <Link to="/" hash={hash} onClick={onClick} className={className}>
+        {children}
+      </Link>
+    );
+  };
+
+  const linkCls = "px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5";
 
   return (
     <header
@@ -36,12 +56,12 @@ export function Navbar() {
             scrolled ? "glass shadow-elevated" : ""
           }`}
         >
-          <a href="#home" className="flex items-center gap-3 group">
+          <Link to="/" hash="home" className="flex items-center gap-3 group">
             <img src={logo.url} alt="Karnataka Ads Studio" className="h-9 w-9 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105" />
             <span className="hidden sm:block text-sm font-medium tracking-tight">
               Karnataka <span className="text-gradient-gold">Ads Studio</span>
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             {nav.map((n) =>
@@ -49,31 +69,27 @@ export function Navbar() {
                 <Link
                   key={n.label}
                   to={n.to}
-                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5"
+                  className={linkCls}
                   activeProps={{ className: "px-4 py-2 text-sm text-foreground rounded-full bg-white/5" }}
                 >
                   {n.label}
                 </Link>
               ) : (
-                <a
-                  key={n.label}
-                  href={n.href}
-                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5"
-                >
+                <HashLink key={n.label} hash={n.hash!} className={linkCls}>
                   {n.label}
-                </a>
+                </HashLink>
               ),
             )}
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href="#contact"
+            <HashLink
+              hash="contact"
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
             >
               Book Discovery Call
               <span aria-hidden>→</span>
-            </a>
+            </HashLink>
             <button
               onClick={() => setOpen((o) => !o)}
               className="md:hidden h-10 w-10 grid place-items-center rounded-full glass"
@@ -100,23 +116,23 @@ export function Navbar() {
                   {n.label}
                 </Link>
               ) : (
-                <a
+                <HashLink
                   key={n.label}
-                  href={n.href}
+                  hash={n.hash!}
                   onClick={() => setOpen(false)}
                   className="block px-4 py-3 text-sm text-foreground hover:text-gold transition-colors"
                 >
                   {n.label}
-                </a>
+                </HashLink>
               ),
             )}
-            <a
-              href="#contact"
+            <HashLink
+              hash="contact"
               onClick={() => setOpen(false)}
               className="mt-2 block text-center rounded-full bg-gold px-5 py-3 text-sm font-medium text-primary-foreground"
             >
               Book Discovery Call
-            </a>
+            </HashLink>
           </div>
         )}
       </div>
