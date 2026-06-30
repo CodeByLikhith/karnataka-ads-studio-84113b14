@@ -16,18 +16,30 @@ export const Route = createFileRoute("/case-studies/$slug")({
     const study = loaderData?.study;
     const url = `${SITE}/case-studies/${params.slug}`;
     const title = study
-      ? `${study.brand} — ${study.title} | Karnataka Ads Studio`
+      ? `${study.brand} ${study.industry} Case Study — ${study.typeLabel} | Karnataka Ads Studio`
       : "Case Study | Karnataka Ads Studio";
-    const description = study?.shortDescription ?? "Case study by Karnataka Ads Studio.";
+    const description = study
+      ? `${study.industry} case study: ${study.brand} — ${study.shortDescription}`
+      : "Case study by Karnataka Ads Studio.";
+    const ogTitle = study ? `${study.brand} — ${study.title}` : title;
     return {
       meta: [
         { title },
         { name: "description", content: description },
-        { property: "og:title", content: title },
+        ...(study
+          ? [{ name: "keywords", content: `${study.industry} ads, ${study.brand}, ${study.creativeTypes.join(", ")}, AI ad creatives, case study` }]
+          : []),
+        { property: "og:title", content: ogTitle },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
+        { property: "og:site_name", content: "Karnataka Ads Studio" },
+        ...(study ? [{ property: "article:section", content: study.industry }] : []),
         ...(study ? [{ property: "og:image", content: `${SITE}${study.cover}` }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: ogTitle },
+        { name: "twitter:description", content: description },
+        ...(study ? [{ name: "twitter:image", content: `${SITE}${study.cover}` }] : []),
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: study
@@ -40,6 +52,8 @@ export const Route = createFileRoute("/case-studies/$slug")({
                 headline: study.title,
                 description: study.shortDescription,
                 image: `${SITE}${study.cover}`,
+                articleSection: study.industry,
+                keywords: [study.industry, study.brand, ...study.creativeTypes].join(", "),
                 author: { "@type": "Organization", name: "Karnataka Ads Studio" },
                 publisher: { "@type": "Organization", name: "Karnataka Ads Studio" },
                 mainEntityOfPage: url,
