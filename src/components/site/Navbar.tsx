@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import logo from "@/assets/logo.png.asset.json";
+import { waLink, waMessages } from "@/lib/whatsapp";
 
 type NavItem = { label: string; hash?: string; to?: string };
 
@@ -83,13 +84,15 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <HashLink
-              hash="contact"
+            <a
+              href={waLink(waMessages.strategyCall)}
+              target="_blank"
+              rel="noreferrer"
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
             >
-              Book Discovery Call
+              Chat on WhatsApp
               <span aria-hidden>→</span>
-            </HashLink>
+            </a>
             <button
               onClick={() => setOpen((o) => !o)}
               className="md:hidden h-10 w-10 grid place-items-center rounded-full glass"
@@ -126,13 +129,15 @@ export function Navbar() {
                 </HashLink>
               ),
             )}
-            <HashLink
-              hash="contact"
+            <a
+              href={waLink(waMessages.strategyCall)}
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setOpen(false)}
               className="mt-2 block text-center rounded-full bg-gold px-5 py-3 text-sm font-medium text-primary-foreground"
             >
-              Book Discovery Call
-            </HashLink>
+              Chat on WhatsApp
+            </a>
           </div>
         )}
       </div>

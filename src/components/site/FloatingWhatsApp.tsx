@@ -1,7 +1,9 @@
+import { waLink, waMessages } from "@/lib/whatsapp";
+
 export function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/919008237225"
+      href={waLink(waMessages.floating)}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
