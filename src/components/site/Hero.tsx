@@ -1,6 +1,7 @@
 import v1 from "@/assets/portfolio-1.mp4.asset.json";
 import v2 from "@/assets/portfolio-2.mp4.asset.json";
 import v3 from "@/assets/portfolio-3.mp4.asset.json";
+import { waLink, waMessages } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
@@ -34,10 +35,12 @@ export function Hero() {
 
             <div className="mt-10 flex flex-wrap gap-3">
               <a
-                href="#contact"
+                href={waLink(waMessages.hero)}
+                target="_blank"
+                rel="noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
               >
-                Book a Discovery Call
+                Let's Grow Your Brand
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
