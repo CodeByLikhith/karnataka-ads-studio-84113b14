@@ -11,10 +11,10 @@ export function Portfolio() {
     <section id="portfolio" className="py-32 md:py-44">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Portfolio"
+          eyebrow="Creative Showcase"
           align="center"
-          title={<>Work that <span className="text-gradient-gold italic font-normal">stops thumbs.</span></>}
-          description="A selection of recent creative built for consumer brands."
+          title={<>Creative <span className="text-gradient-gold italic font-normal">Showcase.</span></>}
+          description="A collection of AI-powered advertising concepts demonstrating our creative quality, storytelling and production capabilities."
         />
 
         <div className="mt-16">

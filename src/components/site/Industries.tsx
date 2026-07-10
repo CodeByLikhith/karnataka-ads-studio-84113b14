@@ -55,6 +55,10 @@ export function Industries() {
             </article>
           ))}
         </div>
+
+        <p className="mt-12 text-center text-sm text-muted-foreground">
+          And other fast-growing consumer brands.
+        </p>
       </div>
     </section>
   );
