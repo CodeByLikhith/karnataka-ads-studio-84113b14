@@ -10,9 +10,9 @@ export function CaseStudies() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <SectionHeader
-            eyebrow="Case Studies"
-            title={<>Brands we&rsquo;ve <span className="text-gradient-gold italic font-normal">moved the needle for.</span></>}
-            description="Real campaigns. Real numbers. Built end-to-end in our AI creative studio."
+            eyebrow="Featured Creative Concepts"
+            title={<>Featured <span className="text-gradient-gold italic font-normal">Creative Concepts.</span></>}
+            description="Selected concept campaigns created to showcase our creative direction, production quality and advertising approach."
           />
         </div>
 
@@ -27,7 +27,7 @@ export function CaseStudies() {
             to="/case-studies"
             className="inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-sm font-medium hover:border-gold/40 hover:-translate-y-0.5 transition-all"
           >
-            View All Case Studies <span aria-hidden>→</span>
+            View All Concepts <span aria-hidden>→</span>
           </Link>
         </div>
       </div>

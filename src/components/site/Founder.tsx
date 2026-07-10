@@ -30,12 +30,15 @@ export function Founder() {
             </h2>
             <div className="mt-8 space-y-5 text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>
-                Hi, I&rsquo;m Likhith. I started Karnataka Ads Studio with one belief — that consumer brands
-                deserve world-class ad creative without the cost and timelines of a traditional shoot.
+                Hi, I&rsquo;m Likhith, founder of Karnataka Ads Studio.
               </p>
               <p>
-                Today we work with supplement, skincare and wellness founders across India and the US,
-                producing the kind of cinematic, performance-driven creative that used to take weeks — in days.
+                We help consumer brands create premium AI-powered advertising creatives designed for
+                Meta, Instagram and TikTok.
+              </p>
+              <p>
+                Our goal is to combine creative strategy with AI production to help brands test more
+                creative ideas, faster and more efficiently.
               </p>
             </div>
 
@@ -54,7 +57,7 @@ export function Founder() {
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-primary-foreground hover:shadow-gold hover:-translate-y-0.5 transition-all"
               >
-                Work with me →
+                Let's Talk →
               </a>
             </div>
           </div>

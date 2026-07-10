@@ -33,7 +33,7 @@ export function Footer() {
             { l: "@karnataka.ads", h: "https://instagram.com/karnataka.ads" },
             { l: "@aiwithlikhith", h: "https://instagram.com/aiwithlikhith" },
             { l: "WhatsApp", h: "https://wa.me/919008237225" },
-            { l: "Email", h: "mailto:karnatakaadsstudio@gmail.com" },
+            { l: "Email", h: "mailto:founder@karnatakaadsstudio.in" },
           ]} />
         </div>
 
