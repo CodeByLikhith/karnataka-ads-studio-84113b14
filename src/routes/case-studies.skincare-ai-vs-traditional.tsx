@@ -161,7 +161,7 @@ function CaseStudy() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium hover:border-gold/30 transition-all"
               >
-                Book a Discovery Call →
+                Let's Talk →
               </a>
             </div>
           </div>

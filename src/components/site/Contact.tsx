@@ -10,8 +10,8 @@ const channels = [
   },
   {
     label: "Email",
-    value: "karnatakaadsstudio@gmail.com",
-    href: "mailto:karnatakaadsstudio@gmail.com",
+    value: "founder@karnatakaadsstudio.in",
+    href: "mailto:founder@karnatakaadsstudio.in",
     glyph: "✉",
   },
   {
@@ -37,8 +37,8 @@ export function Contact() {
           align="center"
           title={
             <>
-              Let&rsquo;s build creative that{" "}
-              <span className="text-gradient-gold italic font-normal">actually converts.</span>
+              Let&rsquo;s create something{" "}
+              <span className="text-gradient-gold italic font-normal">great together.</span>
             </>
           }
           description="Skip the forms. Message us on WhatsApp and we'll reply personally — usually within a few hours."
@@ -51,11 +51,11 @@ export function Contact() {
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
           >
-            Book a Free Strategy Call
+            Start Your Project
             <span aria-hidden>→</span>
           </a>
           <a
-            href="mailto:karnatakaadsstudio@gmail.com"
+            href="mailto:founder@karnatakaadsstudio.in"
             className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-sm font-medium text-foreground hover:bg-white/10 transition-all"
           >
             Email us instead

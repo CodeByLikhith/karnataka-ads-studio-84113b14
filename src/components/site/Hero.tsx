@@ -29,8 +29,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              We craft premium AI-powered ad creatives for supplement, skincare, perfume and wellness brands —
-              cinema-grade work without the cost of a shoot.
+              We create premium AI-powered advertising creatives for modern consumer brands. From food &amp; beverage and beauty to wellness, pet care and lifestyle products, we help brands produce high-converting Meta, Instagram and TikTok creatives without the cost and time of traditional production.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
