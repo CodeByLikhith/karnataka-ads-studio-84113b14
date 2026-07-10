@@ -1,18 +1,18 @@
 import { SectionHeader } from "./SectionHeader";
-import supplements from "@/assets/cat-supplements.jpg";
-import skincare from "@/assets/cat-skincare.jpg";
+import foodBev from "@/assets/cat-foods.jpg";
+import beauty from "@/assets/cat-skincare.jpg";
 import wellness from "@/assets/cat-wellness.jpg";
-import haircare from "@/assets/cat-haircare.jpg";
-import perfumes from "@/assets/cat-perfumes.jpg";
-import foods from "@/assets/cat-foods.jpg";
+import petcare from "@/assets/cat-petcare.jpg";
+import home from "@/assets/cat-home.jpg";
+import baby from "@/assets/cat-baby.jpg";
 
 const industries = [
-  { name: "Supplements", description: "Protein, Vitamins, Ayurveda & Nutrition", image: supplements },
-  { name: "Skincare", description: "Serums, Creams, Face Wash & Beauty Products", image: skincare },
-  { name: "Wellness", description: "Health, Lifestyle & Everyday Wellness Products", image: wellness },
-  { name: "Haircare", description: "Hair Oils, Shampoo, Conditioner & Treatments", image: haircare },
-  { name: "Perfumes", description: "Luxury Fragrances & Personal Care", image: perfumes },
-  { name: "Packaged Foods", description: "Ragi Malt, Health Mixes, Ready-to-Eat & FMCG Products", image: foods },
+  { name: "Food & Beverage", description: "Snacks, drinks, health foods & everyday consumables", image: foodBev },
+  { name: "Beauty & Skincare", description: "Serums, creams, cosmetics & personal beauty", image: beauty },
+  { name: "Health & Wellness", description: "Supplements, nutrition, self-care & lifestyle wellness", image: wellness },
+  { name: "Pet Care", description: "Pet food, grooming, supplements & everyday pet essentials", image: petcare },
+  { name: "Home & Lifestyle", description: "Candles, fragrances, décor & modern living essentials", image: home },
+  { name: "Baby & Family", description: "Baby care, family wellness & everyday household products", image: baby },
 ];
 
 export function Industries() {
