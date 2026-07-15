@@ -2,6 +2,7 @@ import v1 from "@/assets/portfolio-11.webm.asset.json";
 import v2 from "@/assets/portfolio-9.mp4.asset.json";
 import v3 from "@/assets/portfolio-13.webm.asset.json";
 import { waLink, waMessages } from "@/lib/whatsapp";
+import { LazyVideo } from "./LazyVideo";
 
 export function Hero() {
   return (
