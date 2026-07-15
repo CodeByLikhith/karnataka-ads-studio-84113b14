@@ -43,7 +43,7 @@ export function Navbar() {
     );
   };
 
-  const linkCls = "px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-white/5";
+  const linkCls = "px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-[color,background-color,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full hover:bg-white/5 hover:-translate-y-0.5";
 
   return (
     <header
