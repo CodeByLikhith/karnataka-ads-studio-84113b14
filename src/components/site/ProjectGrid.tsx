@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Project } from "./projects-data";
+import { LazyVideo } from "./LazyVideo";
 
 interface Props {
   items: Project[];
