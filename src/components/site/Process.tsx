@@ -1,6 +1,5 @@
 import { SectionHeader } from "./SectionHeader";
 import processVideo from "@/assets/portfolio-14.mp4.asset.json";
-import { LazyVideo } from "./LazyVideo";
 
 
 const steps = [
@@ -26,9 +25,13 @@ export function Process() {
 
         <div className="mt-16 flex justify-center">
           <div className="relative w-full max-w-xs aspect-[9/16] rounded-3xl overflow-hidden border border-border shadow-elevated">
-            <LazyVideo
+            <video
               src={processVideo.url}
               autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
               className="h-full w-full object-cover"
             />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/20 rounded-3xl" />

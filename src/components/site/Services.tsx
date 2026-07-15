@@ -25,7 +25,7 @@ export function Services() {
           {services.map((s) => (
             <article
               key={s.title}
-              className="group relative rounded-3xl glass p-7 transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:bg-white/[0.07] hover:shadow-elevated will-change-transform"
+              className="group relative rounded-3xl glass p-7 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.07]"
             >
               <div className="text-xs font-mono text-gold/70 tracking-widest">{s.num}</div>
               <h3 className="mt-8 text-xl font-semibold tracking-tight">{s.title}</h3>
