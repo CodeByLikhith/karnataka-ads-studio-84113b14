@@ -34,13 +34,9 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-32 md:py-44 border-t border-border overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12]">
-        <video
+        <LazyVideo
           src={ctaVideo.url}
           autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
