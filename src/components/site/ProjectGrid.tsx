@@ -21,17 +21,13 @@ export function ProjectGrid({ items }: Props) {
           <button
             key={p.src}
             onClick={() => setLightbox(p)}
-            className="group relative rounded-3xl overflow-hidden bg-surface aspect-[9/14] border border-border hover:border-gold/40 transition-all"
+            className="group relative rounded-3xl overflow-hidden bg-surface aspect-[9/14] border border-border hover:border-gold/40 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-elevated will-change-transform"
             aria-label={`Preview ${p.title}`}
           >
-            <video
+            <LazyVideo
               src={p.src}
-              muted
-              loop
-              playsInline
               autoPlay
-              preload="metadata"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
             />
             <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black via-black/70 to-transparent">
               <div className="text-[10px] uppercase tracking-[0.25em] text-gold">
