@@ -1,6 +1,7 @@
 import { SectionHeader } from "./SectionHeader";
 import { waLink, waMessages } from "@/lib/whatsapp";
 import ctaVideo from "@/assets/portfolio-10.mp4.asset.json";
+import { LazyVideo } from "./LazyVideo";
 
 const channels = [
   {
