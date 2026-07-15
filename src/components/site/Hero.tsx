@@ -1,6 +1,6 @@
-import v1 from "@/assets/portfolio-1.mp4.asset.json";
-import v2 from "@/assets/portfolio-2.mp4.asset.json";
-import v3 from "@/assets/portfolio-3.mp4.asset.json";
+import v1 from "@/assets/portfolio-11.webm.asset.json";
+import v2 from "@/assets/portfolio-9.mp4.asset.json";
+import v3 from "@/assets/portfolio-13.webm.asset.json";
 import { waLink, waMessages } from "@/lib/whatsapp";
 
 export function Hero() {
@@ -93,6 +93,7 @@ function PhoneCard({ src, className }: { src: string; className?: string }) {
             muted
             loop
             playsInline
+            preload="metadata"
             className="h-full w-full object-cover"
           />
         </div>
