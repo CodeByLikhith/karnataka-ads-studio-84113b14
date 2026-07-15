@@ -1,4 +1,6 @@
 import { SectionHeader } from "./SectionHeader";
+import processVideo from "@/assets/portfolio-14.mp4.asset.json";
+
 
 const steps = [
   { n: "01", t: "Research", d: "We study your offer, audience and category leaders." },
