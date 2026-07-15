@@ -93,6 +93,7 @@ function PhoneCard({ src, className }: { src: string; className?: string }) {
             muted
             loop
             playsInline
+            preload="metadata"
             className="h-full w-full object-cover"
           />
         </div>
