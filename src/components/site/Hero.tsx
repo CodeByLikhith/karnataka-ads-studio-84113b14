@@ -2,6 +2,7 @@ import v1 from "@/assets/portfolio-11.webm.asset.json";
 import v2 from "@/assets/portfolio-9.mp4.asset.json";
 import v3 from "@/assets/portfolio-13.webm.asset.json";
 import { waLink, waMessages } from "@/lib/whatsapp";
+import { LazyVideo } from "./LazyVideo";
 
 export function Hero() {
   return (
@@ -84,16 +85,12 @@ export function Hero() {
 
 function PhoneCard({ src, className }: { src: string; className?: string }) {
   return (
-    <div className={`group ${className}`}>
+    <div className={`group ${className} transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1`}>
       <div className="relative rounded-[2rem] p-1.5 bg-gradient-to-b from-white/20 to-white/5 shadow-elevated">
         <div className="rounded-[1.7rem] overflow-hidden bg-black aspect-[9/16]">
-          <video
+          <LazyVideo
             src={src}
             autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
             className="h-full w-full object-cover"
           />
         </div>
