@@ -84,6 +84,8 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -92,12 +94,39 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   ::selection {
     background: var(--gold);
     color: var(--background);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Off-screen sections skip layout/paint — big scroll perf win on long pages */
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 800px;
+  }
+
+  img, video {
+    -webkit-user-drag: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
