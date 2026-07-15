@@ -1,5 +1,6 @@
 import { SectionHeader } from "./SectionHeader";
 import processVideo from "@/assets/portfolio-14.mp4.asset.json";
+import { LazyVideo } from "./LazyVideo";
 
 
 const steps = [
