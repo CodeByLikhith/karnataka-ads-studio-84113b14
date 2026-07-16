@@ -1,4 +1,6 @@
 import founder from "@/assets/founder.png.asset.json";
+import founderVideo from "@/assets/founder-intro.mp4.asset.json";
+import { LazyVideo } from "./LazyVideo";
 
 export function Founder() {
   return (
@@ -10,7 +12,12 @@ export function Founder() {
               <div className="absolute -inset-6 rounded-[2.5rem] opacity-30 blur-2xl"
                    style={{ background: "radial-gradient(closest-side, oklch(0.82 0.13 86 / 0.7), transparent)" }} />
               <div className="relative rounded-[2rem] overflow-hidden border border-border bg-surface aspect-[3/4]">
-                <img src={founder.url} alt="Likhith Gowda — Founder of Karnataka Ads Studio" className="h-full w-full object-cover" />
+                <LazyVideo
+                  src={founderVideo.url}
+                  poster={founder.url}
+                  aria-label="Likhith Gowda — Founder of Karnataka Ads Studio"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="text-xs uppercase tracking-widest text-gold">Founder</div>

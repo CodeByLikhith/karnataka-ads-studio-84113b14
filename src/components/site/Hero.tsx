@@ -71,9 +71,9 @@ export function Hero() {
           {/* Right side: animated stacked phone mockups */}
           <div className="lg:col-span-5 relative reveal" style={{ animationDelay: "200ms" }}>
             <div className="relative aspect-[4/5] max-w-md mx-auto">
-              <PhoneCard src={v1.url} className="absolute left-0 top-8 w-[58%] rotate-[-8deg] z-10" />
-              <PhoneCard src={v2.url} className="absolute right-0 top-0 w-[58%] rotate-[6deg] z-20" />
-              <PhoneCard src={v3.url} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] z-30" />
+              <PhoneCard src={v1.url} className="absolute left-0 top-8 w-[58%] rotate-[-8deg] z-10" preload="auto" />
+              <PhoneCard src={v2.url} className="absolute right-0 top-0 w-[58%] rotate-[6deg] z-20" preload="auto" />
+              <PhoneCard src={v3.url} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] z-30" preload="auto" />
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ export function Hero() {
   );
 }
 
-function PhoneCard({ src, className }: { src: string; className?: string }) {
+function PhoneCard({ src, className, preload = "metadata" }: { src: string; className?: string; preload?: "auto" | "metadata" | "none" }) {
   return (
     <div className={`group ${className}`}>
       <div className="relative rounded-[2rem] p-1.5 bg-gradient-to-b from-white/20 to-white/5 shadow-elevated">
@@ -93,7 +93,7 @@ function PhoneCard({ src, className }: { src: string; className?: string }) {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload={preload}
             className="h-full w-full object-cover"
           />
         </div>

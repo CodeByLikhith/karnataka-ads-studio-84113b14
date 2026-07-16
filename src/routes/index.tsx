@@ -11,6 +11,9 @@ import { Founder } from "@/components/site/Founder";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import heroV1 from "@/assets/portfolio-11.webm.asset.json";
+import heroV2 from "@/assets/portfolio-9.mp4.asset.json";
+import heroV3 from "@/assets/portfolio-13.webm.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +31,11 @@ export const Route = createFileRoute("/")({
           "Cinematic AI ad creatives for supplement, skincare, perfume and wellness brands.",
       },
       { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "preload", as: "video", href: heroV1.url, type: "video/webm", fetchpriority: "high" } as unknown as Record<string, string>,
+      { rel: "preload", as: "video", href: heroV2.url, type: "video/mp4" } as unknown as Record<string, string>,
+      { rel: "preload", as: "video", href: heroV3.url, type: "video/webm" } as unknown as Record<string, string>,
     ],
   }),
   component: Index,
