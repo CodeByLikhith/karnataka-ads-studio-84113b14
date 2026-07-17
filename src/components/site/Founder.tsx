@@ -15,9 +15,12 @@ export function Founder() {
                 <LazyVideo
                   src={founderVideo.url}
                   poster={founder.url}
+                  playThreshold={0.6}
+                  pauseThreshold={0.3}
                   aria-label="Likhith Gowda — Founder of Karnataka Ads Studio"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="text-xs uppercase tracking-widest text-gold">Founder</div>
