@@ -84,18 +84,14 @@ export function Hero() {
   );
 }
 
-function PhoneCard({ src, className, preload = "metadata" }: { src: string; className?: string; preload?: "auto" | "metadata" | "none" }) {
+function PhoneCard({ src, className }: { src: string; className?: string }) {
   return (
     <div className={`group ${className}`}>
       <div className="relative rounded-[2rem] p-1.5 bg-gradient-to-b from-white/20 to-white/5 shadow-elevated">
         <div className="rounded-[1.7rem] overflow-hidden bg-black aspect-[9/16]">
-          <video
+          <LazyVideo
             src={src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload={preload}
+            rootMargin="1200px 0px"
             className="h-full w-full object-cover"
           />
         </div>
@@ -104,3 +100,4 @@ function PhoneCard({ src, className, preload = "metadata" }: { src: string; clas
     </div>
   );
 }
+
