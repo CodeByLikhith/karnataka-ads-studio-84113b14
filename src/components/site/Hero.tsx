@@ -1,7 +1,9 @@
 import v1 from "@/assets/portfolio-11.webm.asset.json";
 import v2 from "@/assets/portfolio-9.mp4.asset.json";
 import v3 from "@/assets/portfolio-13.webm.asset.json";
+import { LazyVideo } from "./LazyVideo";
 import { waLink, waMessages } from "@/lib/whatsapp";
+
 
 export function Hero() {
   return (
@@ -71,9 +73,10 @@ export function Hero() {
           {/* Right side: animated stacked phone mockups */}
           <div className="lg:col-span-5 relative reveal" style={{ animationDelay: "200ms" }}>
             <div className="relative aspect-[4/5] max-w-md mx-auto">
-              <PhoneCard src={v1.url} className="absolute left-0 top-8 w-[58%] rotate-[-8deg] z-10" preload="auto" />
-              <PhoneCard src={v2.url} className="absolute right-0 top-0 w-[58%] rotate-[6deg] z-20" preload="auto" />
-              <PhoneCard src={v3.url} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] z-30" preload="auto" />
+              <PhoneCard src={v1.url} className="absolute left-0 top-8 w-[58%] rotate-[-8deg] z-10" />
+              <PhoneCard src={v2.url} className="absolute right-0 top-0 w-[58%] rotate-[6deg] z-20" />
+              <PhoneCard src={v3.url} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] z-30" />
+
             </div>
           </div>
         </div>
@@ -82,18 +85,14 @@ export function Hero() {
   );
 }
 
-function PhoneCard({ src, className, preload = "metadata" }: { src: string; className?: string; preload?: "auto" | "metadata" | "none" }) {
+function PhoneCard({ src, className }: { src: string; className?: string }) {
   return (
     <div className={`group ${className}`}>
       <div className="relative rounded-[2rem] p-1.5 bg-gradient-to-b from-white/20 to-white/5 shadow-elevated">
         <div className="rounded-[1.7rem] overflow-hidden bg-black aspect-[9/16]">
-          <video
+          <LazyVideo
             src={src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload={preload}
+            rootMargin="1200px 0px"
             className="h-full w-full object-cover"
           />
         </div>
@@ -102,3 +101,4 @@ function PhoneCard({ src, className, preload = "metadata" }: { src: string; clas
     </div>
   );
 }
+
