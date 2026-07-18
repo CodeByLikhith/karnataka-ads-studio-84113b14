@@ -32,7 +32,7 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 type Filter = "All" | ProjectCategory;
-const filters: Filter[] = ["All", "Supplements", "Skincare", "Perfumes", "Food & Wellness", "Posters"];
+const filters: Filter[] = ["All", "Health Supplements", "Skincare", "Beverages", "Packaged Foods", "Functional Beverages", "Fashion & Accessories", "Confectionery", "Luxury Skincare", "Pet Nutrition"];
 
 function PortfolioPage() {
   const [active, setActive] = useState<Filter>("All");
