@@ -11,9 +11,9 @@ import { Founder } from "@/components/site/Founder";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
-import heroV1 from "@/assets/portfolio-11.webm.asset.json";
-import heroV2 from "@/assets/portfolio-9.mp4.asset.json";
-import heroV3 from "@/assets/portfolio-13.webm.asset.json";
+import heroV1 from "@/assets/portfolio-1.mp4.asset.json";
+import heroV2 from "@/assets/portfolio-6.mp4.asset.json";
+import heroV3 from "@/assets/portfolio-8.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
