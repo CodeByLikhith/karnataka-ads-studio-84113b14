@@ -13,11 +13,16 @@ import v13 from "@/assets/portfolio-13.webm.asset.json";
 import v14 from "@/assets/portfolio-14.mp4.asset.json";
 
 export type ProjectCategory =
-  | "Supplements"
+  | "Health Supplements"
   | "Skincare"
-  | "Perfumes"
-  | "Food & Wellness"
-  | "Posters";
+  | "Beverages"
+  | "Packaged Foods"
+  | "Functional Beverages"
+  | "Fashion & Accessories"
+  | "Confectionery"
+  | "Luxury Skincare"
+  | "Pet Nutrition";
+
 
 export interface Project {
   src: string;
@@ -28,18 +33,18 @@ export interface Project {
 // Curated order — first 6 appear as the homepage teaser.
 // Selected for best balance of fast loading, smooth playback and visual quality.
 export const projects: Project[] = [
-  { src: v1.url, title: "Project 01", category: "Food & Wellness" },
-  { src: v6.url, title: "Project 02", category: "Food & Wellness" },
-  { src: v8.url, title: "Project 03", category: "Skincare" },
-  { src: v14.url, title: "Project 04", category: "Perfumes" },
-  { src: v7.url, title: "Project 05", category: "Posters" },
-  { src: v2.url, title: "Project 06", category: "Skincare" },
-  { src: v3.url, title: "Project 07", category: "Supplements" },
-  { src: v4.url, title: "Project 08", category: "Supplements" },
-  { src: v5.url, title: "Project 09", category: "Perfumes" },
-  { src: v12.url, title: "Project 10", category: "Skincare" },
-  { src: v11.url, title: "Project 11", category: "Food & Wellness" },
-  { src: v13.url, title: "Project 12", category: "Skincare" },
-  { src: v9.url, title: "Project 13", category: "Skincare" },
+  { src: v1.url, title: "Project 01", category: "Health Supplements" },
+  { src: v6.url, title: "Project 02", category: "Skincare" },
+  { src: v8.url, title: "Project 03", category: "Health Supplements" },
+  { src: v14.url, title: "Project 04", category: "Beverages" },
+  { src: v7.url, title: "Project 05", category: "Beverages" },
+  { src: v2.url, title: "Project 06", category: "Packaged Foods" },
+  { src: v3.url, title: "Project 07", category: "Functional Beverages" },
+  { src: v4.url, title: "Project 08", category: "Skincare" },
+  { src: v5.url, title: "Project 09", category: "Skincare" },
+  { src: v12.url, title: "Project 10", category: "Fashion & Accessories" },
+  { src: v11.url, title: "Project 11", category: "Confectionery" },
+  { src: v13.url, title: "Project 12", category: "Luxury Skincare" },
+  { src: v9.url, title: "Project 13", category: "Pet Nutrition" },
 ];
 
