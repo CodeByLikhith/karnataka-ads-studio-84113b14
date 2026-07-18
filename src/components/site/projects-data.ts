@@ -13,11 +13,16 @@ import v13 from "@/assets/portfolio-13.webm.asset.json";
 import v14 from "@/assets/portfolio-14.mp4.asset.json";
 
 export type ProjectCategory =
-  | "Supplements"
+  | "Health Supplements"
   | "Skincare"
-  | "Perfumes"
-  | "Food & Wellness"
-  | "Posters";
+  | "Beverages"
+  | "Packaged Foods"
+  | "Functional Beverages"
+  | "Fashion & Accessories"
+  | "Confectionery"
+  | "Luxury Skincare"
+  | "Pet Nutrition";
+
 
 export interface Project {
   src: string;
