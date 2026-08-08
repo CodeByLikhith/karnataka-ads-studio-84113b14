@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import founder from "@/assets/founder.png.asset.json";
-import founderVideo from "@/assets/founder-intro.mp4.asset.json";
+import { image, video } from "@/lib/media";
 
 const STORAGE_KEY = "kas:founder-unmuted";
 
@@ -127,8 +126,8 @@ export function Founder() {
               <div ref={wrapRef} className="relative rounded-[2rem] overflow-hidden border border-border bg-surface aspect-[3/4]">
                 <video
                   ref={videoRef}
-                  src={founderVideo.url}
-                  poster={founder.url}
+                  src={video.founderIntro.url}
+                  poster={image.founder}
                   playsInline
                   loop
                   muted={muted}

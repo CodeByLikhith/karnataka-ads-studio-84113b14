@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.png.asset.json";
+import { image } from "@/lib/media";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <img src={logo.url} alt="" className="h-10 w-10 rounded-lg ring-1 ring-white/10" />
+              <img src={image.logo} alt="" className="h-10 w-10 rounded-lg ring-1 ring-white/10" />
               <div className="text-sm font-medium tracking-tight">
                 Karnataka <span className="text-gradient-gold">Ads Studio</span>
               </div>

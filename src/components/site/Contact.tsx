@@ -1,6 +1,6 @@
 import { SectionHeader } from "./SectionHeader";
 import { waLink, waMessages } from "@/lib/whatsapp";
-import ctaVideo from "@/assets/portfolio-10.mp4.asset.json";
+import { video } from "@/lib/media";
 import { LazyVideo } from "./LazyVideo";
 
 const channels = [
@@ -34,7 +34,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-32 md:py-44 border-t border-border overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-[0.12]">
-        <LazyVideo src={ctaVideo.url} className="h-full w-full object-cover" />
+        <LazyVideo src={video.p10.url} poster={video.p10.poster} className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
       </div>
       <div className="mx-auto max-w-3xl px-6 text-center">
