@@ -1,5 +1,5 @@
 import { SectionHeader } from "./SectionHeader";
-import processVideo from "@/assets/portfolio-14.mp4.asset.json";
+import { video } from "@/lib/media";
 import { LazyVideo } from "./LazyVideo";
 
 
@@ -26,7 +26,7 @@ export function Process() {
 
         <div className="mt-16 flex justify-center">
           <div className="relative w-full max-w-xs aspect-[9/16] rounded-3xl overflow-hidden border border-border shadow-elevated">
-            <LazyVideo src={processVideo.url} className="h-full w-full object-cover" />
+            <LazyVideo src={video.p14.url} poster={video.p14.poster} className="h-full w-full object-cover" />
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-gold/20 rounded-3xl" />
           </div>
         </div>

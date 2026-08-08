@@ -8,6 +8,8 @@ interface Props extends Omit<VideoHTMLAttributes<HTMLVideoElement>, "src"> {
   playThreshold?: number;
   /** Fraction below which the video pauses. Must be < playThreshold to avoid flicker. */
   pauseThreshold?: number;
+  /** preload value applied once the element is within range. */
+  preloadWhenNear?: "metadata" | "auto";
 }
 
 /**
@@ -17,12 +19,15 @@ interface Props extends Omit<VideoHTMLAttributes<HTMLVideoElement>, "src"> {
  *  - Pauses when intersectionRatio < pauseThreshold (hysteresis prevents flicker).
  *  - Never unmounts, so currentTime persists → resumes from exact spot.
  *  - Uses a single IntersectionObserver — no scroll listeners.
+ *  - On a load/decode error the <source> is dropped so the poster stays visible
+ *    instead of a black rectangle; the app keeps rendering normally.
  */
 export const LazyVideo = memo(function LazyVideo({
   src,
   rootMargin = "600px 0px",
   playThreshold = 0.1,
   pauseThreshold = 0,
+  preloadWhenNear = "metadata",
   className,
   poster,
   muted = true,
@@ -32,6 +37,7 @@ export const LazyVideo = memo(function LazyVideo({
 }: Props) {
   const ref = useRef<HTMLVideoElement | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
   const loadedRef = useRef(false);
 
   useEffect(() => {
@@ -98,15 +104,24 @@ export const LazyVideo = memo(function LazyVideo({
     };
   }, [playThreshold, pauseThreshold, rootMargin]);
 
+  const active = loaded && !failed;
+
   return (
     <video
       ref={ref}
-      src={loaded ? src : undefined}
+      src={active ? src : undefined}
       poster={poster}
       muted={muted}
       loop={loop}
       playsInline={playsInline}
-      preload={loaded ? "auto" : "none"}
+      preload={active ? preloadWhenNear : "none"}
+      onError={() => {
+        if (loadedRef.current && !failed) {
+          // Keep the poster on screen; never let a missing file break the page.
+          if (typeof console !== "undefined") console.warn("Video failed to load:", src);
+          setFailed(true);
+        }
+      }}
       className={className}
       {...rest}
     />

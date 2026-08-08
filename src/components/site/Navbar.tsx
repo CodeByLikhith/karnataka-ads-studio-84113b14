@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import logo from "@/assets/logo.png.asset.json";
+import { image } from "@/lib/media";
 import { waLink, waMessages } from "@/lib/whatsapp";
 
 type NavItem = { label: string; hash?: string; to?: string };
@@ -58,7 +58,7 @@ export function Navbar() {
           }`}
         >
           <Link to="/" hash="home" className="flex items-center gap-3 group">
-            <img src={logo.url} alt="Karnataka Ads Studio" className="h-9 w-9 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105" />
+            <img src={image.logo} alt="Karnataka Ads Studio" className="h-9 w-9 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105" />
             <span className="hidden sm:block text-sm font-medium tracking-tight">
               Karnataka <span className="text-gradient-gold">Ads Studio</span>
             </span>

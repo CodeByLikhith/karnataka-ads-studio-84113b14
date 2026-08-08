@@ -1,16 +1,4 @@
-import v1 from "@/assets/portfolio-1.mp4.asset.json";
-import v2 from "@/assets/portfolio-2.mp4.asset.json";
-import v3 from "@/assets/portfolio-3.mp4.asset.json";
-import v4 from "@/assets/portfolio-4.mp4.asset.json";
-import v5 from "@/assets/portfolio-5.mp4.asset.json";
-import v6 from "@/assets/portfolio-6.mp4.asset.json";
-import v7 from "@/assets/portfolio-7.mp4.asset.json";
-import v8 from "@/assets/portfolio-8.mp4.asset.json";
-import v9 from "@/assets/portfolio-9.mp4.asset.json";
-import v11 from "@/assets/portfolio-11.webm.asset.json";
-import v12 from "@/assets/portfolio-12.webm.asset.json";
-import v13 from "@/assets/portfolio-13.webm.asset.json";
-import v14 from "@/assets/portfolio-14.mp4.asset.json";
+import { video } from "@/lib/media";
 
 export type ProjectCategory =
   | "Health Supplements"
@@ -26,6 +14,7 @@ export type ProjectCategory =
 
 export interface Project {
   src: string;
+  poster: string;
   title: string;
   category: ProjectCategory | null;
 }
@@ -33,18 +22,17 @@ export interface Project {
 // Curated order — first 6 appear as the homepage teaser.
 // Selected for best balance of fast loading, smooth playback and visual quality.
 export const projects: Project[] = [
-  { src: v1.url, title: "Project 01", category: "Health Supplements" },
-  { src: v6.url, title: "Project 02", category: "Skincare" },
-  { src: v8.url, title: "Project 03", category: "Health Supplements" },
-  { src: v14.url, title: "Project 04", category: "Beverages" },
-  { src: v7.url, title: "Project 05", category: "Beverages" },
-  { src: v2.url, title: "Project 06", category: "Packaged Foods" },
-  { src: v3.url, title: "Project 07", category: "Functional Beverages" },
-  { src: v4.url, title: "Project 08", category: "Skincare" },
-  { src: v5.url, title: "Project 09", category: "Skincare" },
-  { src: v12.url, title: "Project 10", category: "Fashion & Accessories" },
-  { src: v11.url, title: "Project 11", category: "Confectionery" },
-  { src: v13.url, title: "Project 12", category: "Luxury Skincare" },
-  { src: v9.url, title: "Project 13", category: "Pet Nutrition" },
+  { ...video.p1, src: video.p1.url, title: "Project 01", category: "Health Supplements" },
+  { ...video.p6, src: video.p6.url, title: "Project 02", category: "Skincare" },
+  { ...video.p8, src: video.p8.url, title: "Project 03", category: "Health Supplements" },
+  { ...video.p14, src: video.p14.url, title: "Project 04", category: "Beverages" },
+  { ...video.p7, src: video.p7.url, title: "Project 05", category: "Beverages" },
+  { ...video.p2, src: video.p2.url, title: "Project 06", category: "Packaged Foods" },
+  { ...video.p3, src: video.p3.url, title: "Project 07", category: "Functional Beverages" },
+  { ...video.p4, src: video.p4.url, title: "Project 08", category: "Skincare" },
+  { ...video.p5, src: video.p5.url, title: "Project 09", category: "Skincare" },
+  { ...video.p12, src: video.p12.url, title: "Project 10", category: "Fashion & Accessories" },
+  { ...video.p11, src: video.p11.url, title: "Project 11", category: "Confectionery" },
+  { ...video.p13, src: video.p13.url, title: "Project 12", category: "Luxury Skincare" },
+  { ...video.p9, src: video.p9.url, title: "Project 13", category: "Pet Nutrition" },
 ];
-

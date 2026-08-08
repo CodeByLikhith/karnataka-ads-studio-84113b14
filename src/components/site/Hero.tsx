@@ -1,6 +1,4 @@
-import v1 from "@/assets/portfolio-1.mp4.asset.json";
-import v2 from "@/assets/portfolio-6.mp4.asset.json";
-import v3 from "@/assets/portfolio-8.mp4.asset.json";
+import { video } from "@/lib/media";
 import { LazyVideo } from "./LazyVideo";
 import { waLink, waMessages } from "@/lib/whatsapp";
 
@@ -73,9 +71,12 @@ export function Hero() {
           {/* Right side: animated stacked phone mockups */}
           <div className="lg:col-span-5 relative reveal" style={{ animationDelay: "200ms" }}>
             <div className="relative aspect-[4/5] max-w-md mx-auto">
-              <PhoneCard src={v1.url} className="absolute left-0 top-8 w-[58%] rotate-[-8deg] z-10" />
-              <PhoneCard src={v2.url} className="absolute right-0 top-0 w-[58%] rotate-[6deg] z-20" />
-              <PhoneCard src={v3.url} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] z-30" />
+              <PhoneCard
+                src={video.p1.url} poster={video.p1.poster} className="absolute left-0 top-8 w-[58%] rotate-[-8deg] z-10" />
+              <PhoneCard
+                src={video.p6.url} poster={video.p6.poster} className="absolute right-0 top-0 w-[58%] rotate-[6deg] z-20" />
+              <PhoneCard
+                src={video.p8.url} poster={video.p8.poster} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[58%] z-30" />
 
             </div>
           </div>
@@ -85,13 +86,15 @@ export function Hero() {
   );
 }
 
-function PhoneCard({ src, className }: { src: string; className?: string }) {
+function PhoneCard({ src, poster, className }: { src: string; poster?: string; className?: string }) {
   return (
     <div className={`group ${className}`}>
       <div className="relative rounded-[2rem] p-1.5 bg-gradient-to-b from-white/20 to-white/5 shadow-elevated">
         <div className="rounded-[1.7rem] overflow-hidden bg-black aspect-[9/16]">
           <LazyVideo
             src={src}
+            poster={poster}
+            preloadWhenNear="auto"
             rootMargin="1200px 0px"
             className="h-full w-full object-cover"
           />
