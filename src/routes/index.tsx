@@ -10,6 +10,7 @@ import { Founder } from "@/components/site/Founder";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { BookACallDialog } from "@/components/site/BookACall";
 import { video } from "@/lib/media";
 
 export const Route = createFileRoute("/")({
@@ -52,6 +53,7 @@ function Index() {
       <Contact />
       <Footer />
       <FloatingWhatsApp />
+      <BookACallDialog />
     </main>
   );
 }
