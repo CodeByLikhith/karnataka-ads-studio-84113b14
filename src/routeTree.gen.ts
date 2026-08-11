@@ -11,9 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
-import { Route as CaseStudiesSkincareAiVsTraditionalRouteImport } from './routes/case-studies.skincare-ai-vs-traditional'
-import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
@@ -25,75 +22,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
-  id: '/case-studies/',
-  path: '/case-studies/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesSkincareAiVsTraditionalRoute =
-  CaseStudiesSkincareAiVsTraditionalRouteImport.update({
-    id: '/case-studies/skincare-ai-vs-traditional',
-    path: '/case-studies/skincare-ai-vs-traditional',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
-  id: '/case-studies/$slug',
-  path: '/case-studies/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
-  '/case-studies/$slug': typeof CaseStudiesSlugRoute
-  '/case-studies/skincare-ai-vs-traditional': typeof CaseStudiesSkincareAiVsTraditionalRoute
-  '/case-studies/': typeof CaseStudiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
-  '/case-studies/$slug': typeof CaseStudiesSlugRoute
-  '/case-studies/skincare-ai-vs-traditional': typeof CaseStudiesSkincareAiVsTraditionalRoute
-  '/case-studies': typeof CaseStudiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/portfolio': typeof PortfolioRoute
-  '/case-studies/$slug': typeof CaseStudiesSlugRoute
-  '/case-studies/skincare-ai-vs-traditional': typeof CaseStudiesSkincareAiVsTraditionalRoute
-  '/case-studies/': typeof CaseStudiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/portfolio'
-    | '/case-studies/$slug'
-    | '/case-studies/skincare-ai-vs-traditional'
-    | '/case-studies/'
+  fullPaths: '/' | '/portfolio'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/portfolio'
-    | '/case-studies/$slug'
-    | '/case-studies/skincare-ai-vs-traditional'
-    | '/case-studies'
-  id:
-    | '__root__'
-    | '/'
-    | '/portfolio'
-    | '/case-studies/$slug'
-    | '/case-studies/skincare-ai-vs-traditional'
-    | '/case-studies/'
+  to: '/' | '/portfolio'
+  id: '__root__' | '/' | '/portfolio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PortfolioRoute: typeof PortfolioRoute
-  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
-  CaseStudiesSkincareAiVsTraditionalRoute: typeof CaseStudiesSkincareAiVsTraditionalRoute
-  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -112,37 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/case-studies/': {
-      id: '/case-studies/'
-      path: '/case-studies'
-      fullPath: '/case-studies/'
-      preLoaderRoute: typeof CaseStudiesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies/skincare-ai-vs-traditional': {
-      id: '/case-studies/skincare-ai-vs-traditional'
-      path: '/case-studies/skincare-ai-vs-traditional'
-      fullPath: '/case-studies/skincare-ai-vs-traditional'
-      preLoaderRoute: typeof CaseStudiesSkincareAiVsTraditionalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies/$slug': {
-      id: '/case-studies/$slug'
-      path: '/case-studies/$slug'
-      fullPath: '/case-studies/$slug'
-      preLoaderRoute: typeof CaseStudiesSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PortfolioRoute: PortfolioRoute,
-  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
-  CaseStudiesSkincareAiVsTraditionalRoute:
-    CaseStudiesSkincareAiVsTraditionalRoute,
-  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

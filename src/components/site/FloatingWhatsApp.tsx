@@ -1,12 +1,11 @@
-import { waLink, waMessages } from "@/lib/whatsapp";
+import { openBookACall } from "./BookACall";
 
 export function FloatingWhatsApp() {
   return (
-    <a
-      href={waLink(waMessages.floating)}
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Chat on WhatsApp"
+    <button
+      type="button"
+      onClick={openBookACall}
+      aria-label="Book a Call"
       className="group fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3 rounded-full bg-[#25D366] pl-4 pr-5 py-3 shadow-[0_10px_40px_-10px_rgba(37,211,102,0.6)] hover:shadow-[0_14px_50px_-10px_rgba(37,211,102,0.8)] transition-shadow float-soft"
     >
       <span className="relative grid place-items-center h-9 w-9 rounded-full bg-white">
@@ -18,8 +17,8 @@ export function FloatingWhatsApp() {
           <span className="absolute inset-0.5 rounded-full bg-[#25D366]" />
         </span>
       </span>
-      <span className="hidden sm:block text-sm font-medium text-white pr-1">Chat with us</span>
-    </a>
+      <span className="hidden sm:block text-sm font-medium text-white pr-1">Book a Call</span>
+    </button>
   );
 }
 

@@ -4,13 +4,13 @@ import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
 import { Industries } from "@/components/site/Industries";
 import { Portfolio } from "@/components/site/Portfolio";
-import { CaseStudies } from "@/components/site/CaseStudies";
 import { Process } from "@/components/site/Process";
 import { Packages } from "@/components/site/Packages";
 import { Founder } from "@/components/site/Founder";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { BookACallDialog } from "@/components/site/BookACall";
 import { video } from "@/lib/media";
 
 export const Route = createFileRoute("/")({
@@ -47,13 +47,13 @@ function Index() {
       <Services />
       <Industries />
       <Portfolio />
-      <CaseStudies />
       <Process />
       <Packages />
       <Founder />
       <Contact />
       <Footer />
       <FloatingWhatsApp />
+      <BookACallDialog />
     </main>
   );
 }

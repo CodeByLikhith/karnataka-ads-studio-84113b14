@@ -1,6 +1,65 @@
+import { useEffect, useState } from "react";
 import { video } from "@/lib/media";
 import { LazyVideo } from "./LazyVideo";
-import { waLink, waMessages } from "@/lib/whatsapp";
+import { openBookACall } from "./BookACall";
+
+const PHRASES = [
+  "scroll-stoppers.",
+  "attention magnets.",
+  "brand stories.",
+  "conversion assets.",
+  "content that sells.",
+];
+
+function RotatingPhrase() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = () => setReduced(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (reduced) {
+        setIndex((i) => (i + 1) % PHRASES.length);
+        return;
+      }
+      setVisible(false);
+      window.setTimeout(() => {
+        setIndex((i) => (i + 1) % PHRASES.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => window.clearInterval(id);
+  }, [reduced]);
+
+  return (
+    <span className="relative grid sm:inline-grid max-w-full align-bottom">
+      {/* Invisible sizer reserves space for the longest phrase — prevents layout shift */}
+      <span aria-hidden className="col-start-1 row-start-1 invisible min-w-0 text-gradient-gold italic font-normal">
+        {PHRASES.reduce((a, b) => (b.length > a.length ? b : a))}
+      </span>
+      <span
+        aria-live="polite"
+        className="col-start-1 row-start-1 min-w-0 text-gradient-gold italic font-normal will-change-[opacity,transform]"
+        style={{
+          opacity: reduced ? 1 : visible ? 1 : 0,
+          transform: reduced ? "none" : visible ? "translate3d(0,0,0)" : "translate3d(0,0.35em,0)",
+          transition: reduced ? "none" : "opacity 400ms ease, transform 400ms cubic-bezier(0.22,1,0.36,1)",
+        }}
+      >
+        {PHRASES[index]}
+      </span>
+    </span>
+  );
+}
+
 
 
 export function Hero() {
@@ -25,7 +84,7 @@ export function Hero() {
             <h1 className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-semibold tracking-[-0.04em] leading-[0.95]">
               Where products
               <br />
-              become <span className="text-gradient-gold italic font-normal">scroll-stoppers.</span>
+              become <RotatingPhrase />
             </h1>
 
             <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -33,15 +92,14 @@ export function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href={waLink(waMessages.hero)}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={openBookACall}
                 className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
               >
-                Let's Grow Your Brand
+                Book a Call
                 <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
+              </button>
               <a
                 href="#portfolio"
                 className="inline-flex items-center gap-2 rounded-full glass px-7 py-4 text-sm font-medium text-foreground hover:bg-white/10 transition-all"
@@ -52,9 +110,10 @@ export function Hero() {
 
             <div className="mt-14 flex items-center gap-8 text-xs text-muted-foreground">
               <div>
-                <div className="text-2xl font-semibold text-foreground">120+</div>
+                <div className="text-2xl font-semibold text-foreground">2000+</div>
                 <div className="mt-1">Creatives shipped</div>
               </div>
+
               <div className="h-10 w-px bg-border" />
               <div>
                 <div className="text-2xl font-semibold text-foreground">48h</div>
