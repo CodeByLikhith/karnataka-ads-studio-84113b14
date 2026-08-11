@@ -40,14 +40,14 @@ function RotatingPhrase() {
   }, [reduced]);
 
   return (
-    <span className="relative inline-grid align-bottom">
+    <span className="relative grid max-w-full">
       {/* Invisible sizer reserves space for the longest phrase — prevents layout shift */}
-      <span aria-hidden className="col-start-1 row-start-1 invisible text-gradient-gold italic font-normal">
+      <span aria-hidden className="col-start-1 row-start-1 invisible min-w-0 text-gradient-gold italic font-normal">
         {PHRASES.reduce((a, b) => (b.length > a.length ? b : a))}
       </span>
       <span
         aria-live="polite"
-        className="col-start-1 row-start-1 text-gradient-gold italic font-normal will-change-[opacity,transform]"
+        className="col-start-1 row-start-1 min-w-0 text-gradient-gold italic font-normal will-change-[opacity,transform]"
         style={{
           opacity: reduced ? 1 : visible ? 1 : 0,
           transform: reduced ? "none" : visible ? "translate3d(0,0,0)" : "translate3d(0,0.35em,0)",
