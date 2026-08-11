@@ -84,7 +84,7 @@ export function Hero() {
             <h1 className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-semibold tracking-[-0.04em] leading-[0.95]">
               Where products
               <br />
-              become <span className="text-gradient-gold italic font-normal">scroll-stoppers.</span>
+              become <RotatingPhrase />
             </h1>
 
             <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -92,15 +92,14 @@ export function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href={waLink(waMessages.hero)}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={openBookACall}
                 className="group inline-flex items-center gap-2 rounded-full bg-gold px-7 py-4 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
               >
-                Let's Grow Your Brand
+                Book a Call
                 <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
+              </button>
               <a
                 href="#portfolio"
                 className="inline-flex items-center gap-2 rounded-full glass px-7 py-4 text-sm font-medium text-foreground hover:bg-white/10 transition-all"
@@ -111,9 +110,10 @@ export function Hero() {
 
             <div className="mt-14 flex items-center gap-8 text-xs text-muted-foreground">
               <div>
-                <div className="text-2xl font-semibold text-foreground">120+</div>
+                <div className="text-2xl font-semibold text-foreground">2000+</div>
                 <div className="mt-1">Creatives shipped</div>
               </div>
+
               <div className="h-10 w-px bg-border" />
               <div>
                 <div className="text-2xl font-semibold text-foreground">48h</div>
