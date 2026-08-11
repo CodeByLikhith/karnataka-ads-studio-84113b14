@@ -40,7 +40,7 @@ function RotatingPhrase() {
   }, [reduced]);
 
   return (
-    <span className="relative grid max-w-full">
+    <span className="relative grid sm:inline-grid max-w-full align-bottom">
       {/* Invisible sizer reserves space for the longest phrase — prevents layout shift */}
       <span aria-hidden className="col-start-1 row-start-1 invisible min-w-0 text-gradient-gold italic font-normal">
         {PHRASES.reduce((a, b) => (b.length > a.length ? b : a))}
