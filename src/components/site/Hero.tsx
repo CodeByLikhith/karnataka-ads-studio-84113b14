@@ -1,6 +1,65 @@
+import { useEffect, useState } from "react";
 import { video } from "@/lib/media";
 import { LazyVideo } from "./LazyVideo";
-import { waLink, waMessages } from "@/lib/whatsapp";
+import { openBookACall } from "./BookACall";
+
+const PHRASES = [
+  "scroll-stoppers.",
+  "attention magnets.",
+  "brand stories.",
+  "conversion assets.",
+  "content that sells.",
+];
+
+function RotatingPhrase() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const onChange = () => setReduced(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      if (reduced) {
+        setIndex((i) => (i + 1) % PHRASES.length);
+        return;
+      }
+      setVisible(false);
+      window.setTimeout(() => {
+        setIndex((i) => (i + 1) % PHRASES.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => window.clearInterval(id);
+  }, [reduced]);
+
+  return (
+    <span className="relative inline-grid align-bottom">
+      {/* Invisible sizer reserves space for the longest phrase — prevents layout shift */}
+      <span aria-hidden className="col-start-1 row-start-1 invisible whitespace-nowrap text-gradient-gold italic font-normal">
+        {PHRASES.reduce((a, b) => (b.length > a.length ? b : a))}
+      </span>
+      <span
+        aria-live="polite"
+        className="col-start-1 row-start-1 whitespace-nowrap text-gradient-gold italic font-normal will-change-[opacity,transform]"
+        style={{
+          opacity: reduced ? 1 : visible ? 1 : 0,
+          transform: reduced ? "none" : visible ? "translate3d(0,0,0)" : "translate3d(0,0.35em,0)",
+          transition: reduced ? "none" : "opacity 400ms ease, transform 400ms cubic-bezier(0.22,1,0.36,1)",
+        }}
+      >
+        {PHRASES[index]}
+      </span>
+    </span>
+  );
+}
+
 
 
 export function Hero() {
