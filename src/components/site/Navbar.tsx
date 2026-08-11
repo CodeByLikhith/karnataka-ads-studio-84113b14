@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { image } from "@/lib/media";
-import { waLink, waMessages } from "@/lib/whatsapp";
+import { openBookACall } from "./BookACall";
 
 type NavItem = { label: string; hash?: string; to?: string };
 
@@ -9,7 +9,6 @@ const nav: NavItem[] = [
   { label: "Home", hash: "home" },
   { label: "Services", hash: "services" },
   { label: "Portfolio", hash: "portfolio" },
-  { label: "Case Studies", to: "/case-studies" },
   { label: "Pricing", hash: "packages" },
   { label: "About", hash: "about" },
   { label: "Contact", hash: "contact" },
@@ -84,15 +83,14 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href={waLink(waMessages.strategyCall)}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              type="button"
+              onClick={openBookACall}
               className="hidden sm:inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
             >
-              Chat on WhatsApp
+              Book a Call
               <span aria-hidden>→</span>
-            </a>
+            </button>
             <button
               onClick={() => setOpen((o) => !o)}
               className="md:hidden h-10 w-10 grid place-items-center rounded-full glass"
@@ -129,15 +127,16 @@ export function Navbar() {
                 </HashLink>
               ),
             )}
-            <a
-              href={waLink(waMessages.strategyCall)}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => setOpen(false)}
-              className="mt-2 block text-center rounded-full bg-gold px-5 py-3 text-sm font-medium text-primary-foreground"
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openBookACall();
+              }}
+              className="mt-2 block w-full text-center rounded-full bg-gold px-5 py-3 text-sm font-medium text-primary-foreground"
             >
-              Chat on WhatsApp
-            </a>
+              Book a Call
+            </button>
           </div>
         )}
       </div>

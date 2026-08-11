@@ -1,5 +1,6 @@
 import { SectionHeader } from "./SectionHeader";
 import { waLink, waMessages } from "@/lib/whatsapp";
+import { openBookACall } from "./BookACall";
 import { video } from "@/lib/media";
 import { LazyVideo } from "./LazyVideo";
 
@@ -52,15 +53,14 @@ export function Contact() {
         />
 
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href={waLink(waMessages.strategyCall)}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
+            onClick={openBookACall}
             className="inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-medium text-primary-foreground transition-all hover:shadow-gold hover:-translate-y-0.5"
           >
-            Start Your Project
+            Book a Call
             <span aria-hidden>→</span>
-          </a>
+          </button>
           <a
             href="mailto:founder@karnatakaadsstudio.in"
             className="inline-flex items-center gap-2 rounded-full glass px-8 py-4 text-sm font-medium text-foreground hover:bg-white/10 transition-all"
