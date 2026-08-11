@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { BookACallDialog } from "@/components/site/BookACall";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ProjectGrid } from "@/components/site/ProjectGrid";
 import { projects, type ProjectCategory } from "@/components/site/projects-data";
@@ -76,6 +77,7 @@ function PortfolioPage() {
       </section>
       <Footer />
       <FloatingWhatsApp />
+      <BookACallDialog />
     </main>
   );
 }
