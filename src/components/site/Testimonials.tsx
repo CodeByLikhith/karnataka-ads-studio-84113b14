@@ -12,7 +12,7 @@ const testimonials = [
     role: "Head of Growth, Atlas Nutrition",
   },
   {
-    quote: "Karnataka Ads Studio feels less like an agency and more like an in-house creative team that just gets it.",
+    quote: "Karnique feels less like an agency and more like an in-house creative team that just gets it.",
     name: "Priya Iyer",
     role: "CMO, Maison Perfumes",
   },
