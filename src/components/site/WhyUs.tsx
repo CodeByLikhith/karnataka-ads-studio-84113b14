@@ -14,7 +14,7 @@ export function WhyUs() {
     <section className="py-28 md:py-36 border-y border-border">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeader
-          eyebrow="Why Karnique"
+          eyebrow="Why Karnataka Ads Studio"
           align="center"
           title={<>The new standard for <span className="text-gradient-gold italic font-normal">creative production.</span></>}
         />
@@ -23,7 +23,7 @@ export function WhyUs() {
           <div className="grid grid-cols-3 text-xs uppercase tracking-widest text-muted-foreground border-b border-border">
             <div className="p-6"> </div>
             <div className="p-6 text-center">Traditional Process</div>
-            <div className="p-6 text-center bg-gold/5 text-gold">Karnique</div>
+            <div className="p-6 text-center bg-gold/5 text-gold">Karnataka Ads Studio</div>
           </div>
           {rows.map((r, i) => (
             <div key={i} className={`grid grid-cols-3 items-center text-sm ${i !== rows.length - 1 ? "border-b border-border" : ""}`}>

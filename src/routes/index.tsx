@@ -16,13 +16,13 @@ import { video } from "@/lib/media";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Karnique — AI Creative for Consumer Brands" },
+      { title: "Karnataka Ads Studio — AI Creative for Consumer Brands" },
       {
         name: "description",
         content:
           "Premium AI creative agency for consumer product brands. AI video ads, UGC, performance statics and creative strategy for supplement, skincare, perfume and wellness brands.",
       },
-      { property: "og:title", content: "Karnique — AI Creative for Consumer Brands" },
+      { property: "og:title", content: "Karnataka Ads Studio — AI Creative for Consumer Brands" },
       {
         property: "og:description",
         content:

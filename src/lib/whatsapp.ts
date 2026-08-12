@@ -20,5 +20,5 @@ export const waMessages = {
     "Hi! I'm interested in Meta Ads Management and would like to discuss my advertising requirements.",
   strategyCall: "Hi! I'd like to talk about creative for my brand.",
   floating:
-    "Hi Karnique! 👋\n\nI visited your website and would like to discuss my brand.\n\nBrand Name:\nWebsite/Instagram:\nWhat I need help with:",
+    "Hi Karnataka Ads Studio! 👋\n\nI visited your website and would like to discuss my brand.\n\nBrand Name:\nWebsite/Instagram:\nWhat I need help with:",
 } as const;

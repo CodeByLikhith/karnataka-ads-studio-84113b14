@@ -6,22 +6,20 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { BookACallDialog } from "@/components/site/BookACall";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ProjectGrid } from "@/components/site/ProjectGrid";
-import { ReelsFeed } from "@/components/site/ReelsFeed";
-import { Packages } from "@/components/site/Packages";
 import { projects, type ProjectCategory } from "@/components/site/projects-data";
 
-const CANONICAL = "https://karnique.lovable.app/portfolio";
+const CANONICAL = "https://karnataka-ads-studio.lovable.app/portfolio";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Karnique" },
+      { title: "Portfolio — Karnataka Ads Studio" },
       {
         name: "description",
         content:
-          "Browse AI video ads, reels and static creative built for supplement, skincare, perfume, wellness and packaged food brands.",
+          "Browse AI video ads, UGC and static creative built for supplement, skincare, perfume, wellness and packaged food brands.",
       },
-      { property: "og:title", content: "Portfolio — Karnique" },
+      { property: "og:title", content: "Portfolio — Karnataka Ads Studio" },
       {
         property: "og:description",
         content: "AI-generated creative built for consumer product brands.",
@@ -37,7 +35,6 @@ export const Route = createFileRoute("/portfolio")({
 type Filter = "All" | ProjectCategory;
 const filters: Filter[] = ["All", "Health Supplements", "Skincare", "Beverages", "Packaged Foods", "Functional Beverages", "Fashion & Accessories", "Confectionery", "Luxury Skincare", "Pet Nutrition"];
 
-
 function PortfolioPage() {
   const [active, setActive] = useState<Filter>("All");
   const items = active === "All" ? projects : projects.filter((p) => p.category === active);
@@ -45,10 +42,10 @@ function PortfolioPage() {
   return (
     <main className="relative">
       <Navbar />
-      <section className="pt-40 pb-16">
+      <section className="pt-40 pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader
-            eyebrow="Grid Showcase"
+            eyebrow="Portfolio"
             align="center"
             title={<>Every <span className="text-gradient-gold italic font-normal">scroll-stopper</span> we've made.</>}
             description="Filter by category to explore the work."
@@ -71,18 +68,13 @@ function PortfolioPage() {
           <div className="mt-12">
             <ProjectGrid items={items} />
           </div>
+          <div className="mt-20 text-center">
+            <Link to="/" className="text-sm text-muted-foreground hover:text-gold transition-colors">
+              ← Back to home
+            </Link>
+          </div>
         </div>
       </section>
-
-      <ReelsFeed />
-
-      <Packages />
-
-      <div className="pb-24 text-center">
-        <Link to="/" className="text-sm text-muted-foreground hover:text-gold transition-colors">
-          ← Back to home
-        </Link>
-      </div>
       <Footer />
       <FloatingWhatsApp />
       <BookACallDialog />

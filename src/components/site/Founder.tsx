@@ -132,43 +132,26 @@ export function Founder() {
                   loop
                   muted={muted}
                   preload="auto"
-                  aria-label="Likhith Gowda — Founder of Karnique"
+                  aria-label="Likhith Gowda — Founder of Karnataka Ads Studio"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (muted) {
-                      handleUnmute();
-                    } else {
-                      const el = videoRef.current;
-                      if (el) el.muted = true;
-                      setMuted(true);
-                      setShowUnmute(true);
-                      sessionStorage.removeItem(STORAGE_KEY);
-                    }
-                  }}
-                  aria-label={muted ? "Unmute founder video" : "Mute founder video"}
-                  aria-pressed={!muted}
-                  className="absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md border border-white/15 px-3.5 py-2 text-xs font-medium text-white hover:bg-black/80 hover:border-gold/40 transition-all shadow-elevated"
-                >
-                  {muted ? (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M11 5 6 9H2v6h4l5 4z" />
-                      <path d="m23 9-6 6" />
-                      <path d="m17 9 6 6" />
-                    </svg>
-                  ) : (
+                {showUnmute && muted && (
+                  <button
+                    type="button"
+                    onClick={handleUnmute}
+                    aria-label="Unmute founder video"
+                    className="absolute top-4 right-4 inline-flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md border border-white/15 px-3.5 py-2 text-xs font-medium text-white hover:bg-black/80 hover:border-gold/40 transition-all shadow-elevated"
+                  >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M11 5 6 9H2v6h4l5 4z" />
                       <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
                       <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
                     </svg>
-                  )}
-                  {muted ? (showUnmute ? "Tap for sound" : "Unmute") : "Sound on"}
-                </button>
+                    Tap for sound
+                  </button>
+                )}
 
                 <div className="absolute bottom-6 left-6 right-6 pointer-events-none">
                   <div className="text-xs uppercase tracking-widest text-gold">Founder</div>
