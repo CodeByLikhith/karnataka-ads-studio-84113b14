@@ -7,10 +7,11 @@ export function Footer() {
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              <img src={image.logo} alt="" className="h-10 w-10 rounded-lg ring-1 ring-white/10" />
+              <img src={image.logo} alt="" className="h-10 w-10 rounded-lg ring-1 ring-white/10 object-contain" />
               <div className="text-sm font-medium tracking-tight">
-                Karnataka <span className="text-gradient-gold">Ads Studio</span>
+                Kar<span className="text-gradient-gold">nique</span>
               </div>
+
             </div>
             <p className="mt-6 text-sm text-muted-foreground max-w-xs leading-relaxed">
               Premium AI creative for consumer product brands. Where products become scroll-stoppers.
@@ -30,7 +31,7 @@ export function Footer() {
             { l: "Creative Strategy", h: "#services" },
           ]} />
           <FooterCol title="Connect" links={[
-            { l: "@karnataka.ads", h: "https://instagram.com/karnataka.ads" },
+            { l: "@karnique.ads", h: "https://instagram.com/karnique.ads" },
             { l: "@aiwithlikhith", h: "https://instagram.com/aiwithlikhith" },
             { l: "WhatsApp", h: "https://wa.me/919008237225" },
             { l: "Email", h: "mailto:founder@karnatakaadsstudio.in" },
@@ -38,7 +39,7 @@ export function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Karnataka Ads Studio. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Karnique. All rights reserved.</div>
           <div>Crafted by Likhith Gowda</div>
         </div>
       </div>

@@ -57,9 +57,9 @@ export function Navbar() {
           }`}
         >
           <Link to="/" hash="home" className="flex items-center gap-3 group">
-            <img src={image.logo} alt="Karnataka Ads Studio" className="h-9 w-9 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105" />
+            <img src={image.logo} alt="Karnique" className="h-9 w-9 rounded-lg ring-1 ring-white/10 object-contain transition-transform group-hover:scale-105" />
             <span className="hidden sm:block text-sm font-medium tracking-tight">
-              Karnataka <span className="text-gradient-gold">Ads Studio</span>
+              Kar<span className="text-gradient-gold">nique</span>
             </span>
           </Link>
 
