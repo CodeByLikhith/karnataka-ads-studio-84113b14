@@ -153,3 +153,5 @@
 @utility float-soft {
   animation: float-soft 3.2s ease-in-out infinite;
 }
+
+.reels-scroll::-webkit-scrollbar { display: none; }

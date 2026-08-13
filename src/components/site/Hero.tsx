@@ -41,10 +41,17 @@ function RotatingPhrase() {
 
   return (
     <span className="relative grid sm:inline-grid max-w-full align-bottom">
-      {/* Invisible sizer reserves space for the longest phrase — prevents layout shift */}
-      <span aria-hidden className="col-start-1 row-start-1 invisible min-w-0 text-gradient-gold italic font-normal">
-        {PHRASES.reduce((a, b) => (b.length > a.length ? b : a))}
-      </span>
+      {/* Invisible sizers: every phrase occupies the same cell, so the reserved
+          height/width always fits the tallest & widest phrase — zero layout shift. */}
+      {PHRASES.map((p) => (
+        <span
+          key={p}
+          aria-hidden
+          className="col-start-1 row-start-1 invisible min-w-0 text-gradient-gold italic font-normal"
+        >
+          {p}
+        </span>
+      ))}
       <span
         aria-live="polite"
         className="col-start-1 row-start-1 min-w-0 text-gradient-gold italic font-normal will-change-[opacity,transform]"
@@ -59,6 +66,7 @@ function RotatingPhrase() {
     </span>
   );
 }
+
 
 
 
