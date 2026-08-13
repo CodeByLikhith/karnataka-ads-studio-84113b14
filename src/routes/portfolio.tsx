@@ -7,6 +7,8 @@ import { BookACallDialog } from "@/components/site/BookACall";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ProjectGrid } from "@/components/site/ProjectGrid";
 import { projects, type ProjectCategory } from "@/components/site/projects-data";
+import { ReelsFeed } from "@/components/site/ReelsFeed";
+import { reels } from "@/components/site/reels-data";
 
 const CANONICAL = "https://karnataka-ads-studio.lovable.app/portfolio";
 
@@ -35,7 +37,10 @@ export const Route = createFileRoute("/portfolio")({
 type Filter = "All" | ProjectCategory;
 const filters: Filter[] = ["All", "Health Supplements", "Skincare", "Beverages", "Packaged Foods", "Functional Beverages", "Fashion & Accessories", "Confectionery", "Luxury Skincare", "Pet Nutrition"];
 
+type Mode = "grid" | "reels";
+
 function PortfolioPage() {
+  const [mode, setMode] = useState<Mode>("grid");
   const [active, setActive] = useState<Filter>("All");
   const items = active === "All" ? projects : projects.filter((p) => p.category === active);
 
@@ -50,24 +55,53 @@ function PortfolioPage() {
             title={<>Every <span className="text-gradient-gold italic font-normal">scroll-stopper</span> we've made.</>}
             description="Filter by category to explore the work."
           />
-          <div className="mt-12 flex flex-wrap justify-center gap-2">
-            {filters.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                className={`px-4 py-2 rounded-full text-xs tracking-wide transition-all ${
-                  active === c
-                    ? "bg-gold text-primary-foreground"
-                    : "glass text-muted-foreground hover:text-foreground hover:border-white/15"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
+
+          {/* Mode switch — exactly two options */}
+          <div className="mt-10 flex justify-center">
+            <div className="inline-flex gap-1 rounded-full glass p-1">
+              {([["grid", "Grid Showcase"], ["reels", "Reels Feed"]] as const).map(([m, label]) => (
+                <button
+                  key={m}
+                  onClick={() => setMode(m)}
+                  className={`px-5 py-2 rounded-full text-xs tracking-wide transition-all ${
+                    mode === m
+                      ? "bg-gold text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="mt-12">
-            <ProjectGrid items={items} />
-          </div>
+
+          {mode === "grid" ? (
+            <>
+              <div className="mt-12 flex flex-wrap justify-center gap-2">
+                {filters.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => setActive(c)}
+                    className={`px-4 py-2 rounded-full text-xs tracking-wide transition-all ${
+                      active === c
+                        ? "bg-gold text-primary-foreground"
+                        : "glass text-muted-foreground hover:text-foreground hover:border-white/15"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-12">
+                <ProjectGrid items={items} />
+              </div>
+            </>
+          ) : (
+            <div className="mt-10">
+              <ReelsFeed reels={reels} />
+            </div>
+          )}
+
           <div className="mt-20 text-center">
             <Link to="/" className="text-sm text-muted-foreground hover:text-gold transition-colors">
               ← Back to home
@@ -81,3 +115,4 @@ function PortfolioPage() {
     </main>
   );
 }
+
