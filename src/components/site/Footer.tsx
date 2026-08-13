@@ -6,11 +6,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
-              <img src={image.logo} alt="" className="h-10 w-10 rounded-lg ring-1 ring-white/10" />
-              <div className="text-sm font-medium tracking-tight">
-                Karnataka <span className="text-gradient-gold">Ads Studio</span>
-              </div>
+            <div className="flex items-center">
+              <img src={image.logo} alt="Karnique" className="h-7 w-auto object-contain" />
             </div>
             <p className="mt-6 text-sm text-muted-foreground max-w-xs leading-relaxed">
               Premium AI creative for consumer product brands. Where products become scroll-stoppers.

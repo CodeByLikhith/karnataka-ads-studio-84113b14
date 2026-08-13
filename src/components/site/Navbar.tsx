@@ -56,11 +56,12 @@ export function Navbar() {
             scrolled ? "glass shadow-elevated" : ""
           }`}
         >
-          <Link to="/" hash="home" className="flex items-center gap-3 group">
-            <img src={image.logo} alt="Karnataka Ads Studio" className="h-9 w-9 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105" />
-            <span className="hidden sm:block text-sm font-medium tracking-tight">
-              Karnataka <span className="text-gradient-gold">Ads Studio</span>
-            </span>
+          <Link to="/" hash="home" className="flex items-center group">
+            <img
+              src={image.logo}
+              alt="Karnique"
+              className="h-6 sm:h-7 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
