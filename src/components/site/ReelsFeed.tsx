@@ -50,6 +50,7 @@ export function ReelsFeed({ reels }: Props) {
 function ReelItem({
   reel,
   index,
+  root,
   active,
   near,
   muted,
@@ -60,6 +61,7 @@ function ReelItem({
 }: {
   reel: Reel;
   index: number;
+  root: HTMLElement | null;
   active: boolean;
   near: boolean;
   muted: boolean;
@@ -83,11 +85,11 @@ function ReelItem({
           if (e.intersectionRatio >= 0.6) onActivate(index);
         }
       },
-      { threshold: [0, 0.6, 0.9] },
+      { root, threshold: [0, 0.6, 0.9] },
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [index, onActivate]);
+  }, [index, onActivate, root]);
 
   // Only the active reel plays.
   useEffect(() => {
