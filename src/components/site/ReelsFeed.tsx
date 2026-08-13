@@ -16,9 +16,14 @@ export function ReelsFeed({ reels }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [muted, setMuted] = useState(true);
   const [liked, setLiked] = useState<Record<string, boolean>>({});
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [rootReady, setRootReady] = useState(false);
+
+  useEffect(() => setRootReady(true), []);
 
   return (
     <div
+      ref={scrollRef}
       className="reels-scroll h-[calc(100svh-9rem)] md:h-[calc(100svh-10rem)] overflow-y-auto snap-y snap-mandatory rounded-3xl"
       style={{ scrollbarWidth: "none" }}
     >
@@ -27,6 +32,7 @@ export function ReelsFeed({ reels }: Props) {
           key={reel.id}
           reel={reel}
           index={i}
+          root={rootReady ? scrollRef.current : null}
           active={i === activeIndex}
           near={Math.abs(i - activeIndex) <= 1}
           muted={muted}
@@ -39,6 +45,7 @@ export function ReelsFeed({ reels }: Props) {
     </div>
   );
 }
+
 
 function ReelItem({
   reel,
