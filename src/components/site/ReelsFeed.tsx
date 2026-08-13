@@ -144,7 +144,10 @@ function ReelItem({
       id={reel.id}
       className="h-full w-full snap-start snap-always grid place-items-center px-3 py-3"
     >
-      <div className="relative h-full aspect-[9/16] max-w-full">
+      <div
+        className="relative aspect-[9/16] max-h-full"
+        style={{ width: "min(100%, calc((100svh - 12rem) * 0.5625))" }}
+      >
         <div
           ref={frameRef}
           className="relative h-full w-full overflow-hidden rounded-3xl bg-black border border-border"
