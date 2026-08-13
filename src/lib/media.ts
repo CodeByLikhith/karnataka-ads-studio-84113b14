@@ -37,6 +37,6 @@ export const video = {
 } as const;
 
 export const image = {
-  logo: "/images/logo.webp",
+  logo: "/images/karnique-logo.webp",
   founder: "/images/founder.webp",
 } as const;
