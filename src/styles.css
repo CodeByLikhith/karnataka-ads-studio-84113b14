@@ -154,4 +154,11 @@
   animation: float-soft 3.2s ease-in-out infinite;
 }
 
+#lovable-badge {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 .reels-scroll::-webkit-scrollbar { display: none; }
+
