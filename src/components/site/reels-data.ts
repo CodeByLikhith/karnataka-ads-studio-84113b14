@@ -30,6 +30,16 @@ const source = [
   video.p12,
   video.p13,
   video.p14,
+  // Batch: Elevique uploads (appended, upload order preserved)
+  video.p15,
+  video.p16,
+  video.p17,
+  video.p18,
+  video.p19,
+  video.p20,
+  video.p21,
+  video.p22,
+  video.p23,
 ];
 
 export const reels: Reel[] = source.map((v, i) => ({
