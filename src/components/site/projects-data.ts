@@ -35,4 +35,14 @@ export const projects: Project[] = [
   { ...video.p11, src: video.p11.url, title: "Project 11", category: "Confectionery" },
   { ...video.p13, src: video.p13.url, title: "Project 12", category: "Luxury Skincare" },
   { ...video.p9, src: video.p9.url, title: "Project 13", category: "Pet Nutrition" },
+  // Latest batch — appended in upload order (also mirrored in the Reels Feed).
+  { ...video.p15, src: video.p15.url, title: "Project 14", category: null },
+  { ...video.p16, src: video.p16.url, title: "Project 15", category: null },
+  { ...video.p17, src: video.p17.url, title: "Project 16", category: null },
+  { ...video.p18, src: video.p18.url, title: "Project 17", category: null },
+  { ...video.p19, src: video.p19.url, title: "Project 18", category: null },
+  { ...video.p20, src: video.p20.url, title: "Project 19", category: null },
+  { ...video.p21, src: video.p21.url, title: "Project 20", category: null },
+  { ...video.p22, src: video.p22.url, title: "Project 21", category: null },
+  { ...video.p23, src: video.p23.url, title: "Project 22", category: null },
 ];
