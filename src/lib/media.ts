@@ -42,6 +42,13 @@ export const video = {
   p21: v("portfolio-21"),
   p22: v("portfolio-22"),
   p23: v("portfolio-23"),
+  p24: v("portfolio-24"),
+  p25: v("portfolio-25"),
+  p26: v("portfolio-26"),
+  p27: v("portfolio-27"),
+  p28: v("portfolio-28"),
+  p29: v("portfolio-29"),
+  p30: v("portfolio-30"),
   founderIntro: v("founder-intro"),
 } as const;
 
