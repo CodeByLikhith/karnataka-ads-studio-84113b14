@@ -48,6 +48,13 @@ const source = [
   video.p28,
   video.p29,
   video.p30,
+  // Batch: latest uploads (appended, upload order preserved)
+  video.p31,
+  video.p32,
+  video.p33,
+  video.p34,
+  video.p35,
+  video.p36,
 ];
 
 export const reels: Reel[] = source.map((v, i) => ({
