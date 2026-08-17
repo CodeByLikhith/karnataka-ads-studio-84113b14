@@ -40,6 +40,14 @@ const source = [
   video.p21,
   video.p22,
   video.p23,
+  // Batch: August uploads (appended, upload order preserved)
+  video.p24,
+  video.p25,
+  video.p26,
+  video.p27,
+  video.p28,
+  video.p29,
+  video.p30,
 ];
 
 export const reels: Reel[] = source.map((v, i) => ({

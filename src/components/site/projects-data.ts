@@ -45,4 +45,11 @@ export const projects: Project[] = [
   { ...video.p21, src: video.p21.url, title: "Project 20", category: null },
   { ...video.p22, src: video.p22.url, title: "Project 21", category: null },
   { ...video.p23, src: video.p23.url, title: "Project 22", category: null },
+  { ...video.p24, src: video.p24.url, title: "Project 23", category: null },
+  { ...video.p25, src: video.p25.url, title: "Project 24", category: null },
+  { ...video.p26, src: video.p26.url, title: "Project 25", category: null },
+  { ...video.p27, src: video.p27.url, title: "Project 26", category: null },
+  { ...video.p28, src: video.p28.url, title: "Project 27", category: null },
+  { ...video.p29, src: video.p29.url, title: "Project 28", category: null },
+  { ...video.p30, src: video.p30.url, title: "Project 29", category: null },
 ];
