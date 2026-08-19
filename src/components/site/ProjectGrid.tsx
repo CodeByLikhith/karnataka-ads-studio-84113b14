@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Volume2 } from "lucide-react";
 import type { Project } from "./projects-data";
 import { LazyVideo } from "./LazyVideo";
 
