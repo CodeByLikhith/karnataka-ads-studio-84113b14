@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Volume2 } from "lucide-react";
 import type { Project } from "./projects-data";
 import { LazyVideo } from "./LazyVideo";
 
@@ -57,9 +58,7 @@ export function ProjectGrid({ items }: Props) {
             ✕
           </button>
           <div className="relative max-h-[85vh] w-full max-w-md" onClick={(e) => e.stopPropagation()}>
-            <div className="rounded-3xl overflow-hidden bg-black shadow-elevated aspect-[9/16]">
-              <video src={lightbox.src} poster={lightbox.poster} controls autoPlay loop playsInline preload="metadata" className="h-full w-full object-contain" />
-            </div>
+            <LightboxVideo key={lightbox.src} src={lightbox.src} poster={lightbox.poster} />
             <div className="mt-4 text-center">
               <div className="text-[10px] uppercase tracking-[0.25em] text-gold">
                 {lightbox.category ?? "Featured"}
