@@ -71,3 +71,60 @@ export function ProjectGrid({ items }: Props) {
     </>
   );
 }
+
+function LightboxVideo({ src, poster }: { src: string; poster: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [needsSoundTap, setNeedsSoundTap] = useState(false);
+
+  const startPlayback = useCallback(async () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    try {
+      await video.play();
+      setNeedsSoundTap(false);
+    } catch {
+      video.muted = true;
+      try {
+        await video.play();
+        setNeedsSoundTap(true);
+      } catch {
+        setNeedsSoundTap(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    void startPlayback();
+  }, [startPlayback]);
+
+  return (
+    <div className="relative aspect-[9/16] overflow-hidden rounded-2xl bg-black">
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        controls
+        loop
+        playsInline
+        preload="metadata"
+        className="h-full w-full object-contain"
+        onPlay={() => setNeedsSoundTap(false)}
+      />
+      {needsSoundTap && (
+        <button
+          type="button"
+          onClick={() => {
+            const video = videoRef.current;
+            if (!video) return;
+            video.muted = false;
+            void video.play().then(() => setNeedsSoundTap(false)).catch(() => setNeedsSoundTap(true));
+          }}
+          className="absolute bottom-16 left-1/2 -translate-x-1/2 rounded-full glass px-4 py-2 text-sm text-foreground"
+        >
+          <Volume2 className="mr-2 inline-block size-4" /> Tap for sound
+        </button>
+      )}
+    </div>
+  );
+}
