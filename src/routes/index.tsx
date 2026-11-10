@@ -14,6 +14,7 @@ import { BookACallDialog } from "@/components/site/BookACall";
 import { video } from "@/lib/media";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Karnataka Ads Studio — AI Creative for Consumer Brands" },

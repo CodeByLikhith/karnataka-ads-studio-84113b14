@@ -13,6 +13,7 @@ import { reels } from "@/components/site/reels-data";
 const CANONICAL = "https://karnataka-ads-studio.lovable.app/portfolio";
 
 export const Route = createFileRoute("/portfolio")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Portfolio — Karnataka Ads Studio" },
